@@ -1,4 +1,4 @@
-package com.diginsite.microservices;
+package com.company.microservices.web;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;

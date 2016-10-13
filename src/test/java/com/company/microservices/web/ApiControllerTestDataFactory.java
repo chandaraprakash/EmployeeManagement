@@ -1,4 +1,4 @@
-package com.diginsite.microservices;
+package com.company.microservices.web;
 
 import java.util.ArrayList;
 import java.util.List;
