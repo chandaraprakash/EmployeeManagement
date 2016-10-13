@@ -10,7 +10,9 @@ public interface EmployeeService {
 	 *
 	 * @return
 	 */
-	List<Employee> getEmployees();
+	List<Employee> getEmployees(String department);
+
+	List<Employee> getEmployeesFromDepartment(String department);
 
 	/**
 	 *

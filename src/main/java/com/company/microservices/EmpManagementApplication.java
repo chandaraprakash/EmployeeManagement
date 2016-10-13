@@ -4,6 +4,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -31,9 +32,9 @@ public class EmpManagementApplication {
 
 				try {
 					// adding interceptor
-					//registry.addInterceptor(empAuthorizationInterceptor());
-					//registry.addInterceptor(empAuthorizationInterceptor())
-							//.addPathPatterns("/employees/**");
+					/*registry.addInterceptor(empAuthorizationInterceptor());
+					registry.addInterceptor(empAuthorizationInterceptor())
+							.addPathPatterns("/employees/**");*/
 
 				} catch (Exception e) {
 					LoggerFactory.getLogger(this.getClass()).error(
@@ -42,5 +43,10 @@ public class EmpManagementApplication {
 				super.addInterceptors(registry);
 			}
 		};
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+	    return new RestTemplate();
 	}
 }

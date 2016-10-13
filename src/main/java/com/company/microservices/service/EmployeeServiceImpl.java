@@ -1,5 +1,6 @@
 package com.company.microservices.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeRepository employeeRepository;
 
 	@Override
-	public List<Employee> getEmployees() {
-		Iterable<Employee> employees = employeeRepository.findAll();
-		return ConversionUtil.toArrayList(employees.iterator());
+	public List<Employee> getEmployees(String department) {
+		List<Employee> employeeList = new ArrayList<>();
+		if (null == department) {
+			Iterable<Employee> employees = employeeRepository.findAll();
+			employeeList = ConversionUtil.toArrayList(employees.iterator());
+		} else {
+			employeeList = employeeRepository.findEmployeeByDepartment(department);
+		}
+
+		return employeeList;
+	}
+
+	@Override
+	public List<Employee> getEmployeesFromDepartment(String department) {
+		// TODO Auto-generated method stub
+		return employeeRepository.findEmployeeByDepartment(department);
 	}
 
 	@Override
